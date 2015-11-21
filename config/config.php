@@ -10,6 +10,6 @@ define('BASEDATOS', 'framework');
 define('USUARIO', 'root');
 define('PASSWORD', '');
 
-define('BASE_PATH','http://localhost/framework');
+define('BASE_PATH','http://localhost/g-framework');
 
 define('LIMITE_PAG', '5');
