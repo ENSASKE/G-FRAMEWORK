@@ -291,12 +291,15 @@ class SQLQuery {
 			$this->_describe = array();
 			$query = 'DESCRIBE '.$this->_table;
 			$this->_result = mysql_query($query, $this->_dbHandle);
-			while ($row = mysql_fetch_row($this->_result)) {
-				 array_push($this->_describe,$row[0]);
-			}
+                        
+                        if($this->_result){
+                            while ($row = mysql_fetch_row($this->_result)) {
+                                     array_push($this->_describe,$row[0]);
+                            }
 
-			mysql_free_result($this->_result);
-			$cache->set('describe'.$this->_table,$this->_describe);
+                            mysql_free_result($this->_result);
+                            $cache->set('describe'.$this->_table,$this->_describe);
+                        }
 		}
 
 		foreach ($this->_describe as $field) {

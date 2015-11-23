@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/framework/librerias/html.class.php</file>
-            <file>file:/C:/xampp/htdocs/framework/index.php</file>
-            <file>file:/C:/xampp/htdocs/framework/app/vistas/header.php</file>
-            <file>file:/C:/xampp/htdocs/framework/public/css/general.css</file>
-            <file>file:/C:/xampp/htdocs/framework/app/vistas/inicio/index.php</file>
-            <file>file:/C:/xampp/htdocs/framework/app/vistas/footer.php</file>
+            <file>file:/C:/xampp/htdocs/G-FRAMEWORK/app/vistas/header.php</file>
+            <file>file:/C:/xampp/htdocs/G-FRAMEWORK/librerias/html.class.php</file>
+            <file>file:/C:/xampp/htdocs/G-FRAMEWORK/app/vistas/inicio/index.php</file>
+            <file>file:/C:/xampp/htdocs/G-FRAMEWORK/public/css/general.css</file>
         </group>
     </open-files>
 </project-private>

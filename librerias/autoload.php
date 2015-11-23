@@ -22,6 +22,7 @@ function stripSlashesDeep($value) {
 }
 
 function removeMagicQuotes() {
+
 	if ( get_magic_quotes_gpc() ) {
 		$_GET    = stripSlashesDeep($_GET   );
 		$_POST   = stripSlashesDeep($_POST  );
@@ -46,26 +47,26 @@ function unregisterGlobals() {
 
 /** Secondary Call Function **/
 
-function performAction($controller,$action,$queryString = null,$render = 0) {
-	
-	$controllerName = ucfirst($controller).'Controller';
-	$dispatch = new $controllerName($controller,$action);
-	$dispatch->render = $render;
-	return call_user_func_array(array($dispatch,$action),$queryString);
+function performAction($controller,$action,$queryString = array(),$render = 0) {	
+    $controllerName = ucfirst($controller).'Controller';
+    $dispatch = new $controllerName($controller,$action);
+    $dispatch->render = $render;
+    
+    return call_user_func_array(array($dispatch,$action),$queryString);
 }
 
 /** Routing **/
 
 function routeURL($url) {
-	global $routing;
+    global $routing;
 
-	foreach ( $routing as $pattern => $result ) {
-            if ( preg_match( $pattern, $url ) ) {
-				return preg_replace( $pattern, $result, $url );
-			}
-	}
-
-	return ($url);
+    foreach ( $routing as $pattern => $result ) {
+        if ( preg_match( $pattern, $url ) ) {
+            return preg_replace( $pattern, $result, $url );
+        }
+    }
+    
+    return ($url);
 }
 
 /** Main Call Function **/
@@ -83,6 +84,11 @@ function despachar() {
 		$url = routeURL($url);
 		$urlArray = array();
 		$urlArray = explode("/",$url);
+                
+                if(end($urlArray) == ''){
+                    array_pop($urlArray);
+                }
+                
 		$controller = $urlArray[0];
 		array_shift($urlArray);
 		if (isset($urlArray[0])) {
@@ -113,27 +119,31 @@ function despachar() {
 /** Autoload any classes that are required **/
 
 function __autoload($className) {
-	
-	if(file_exists(ROOT . DS . 'librerias' . DS . strtolower($className) . '.class.php')) {
-		require_once(ROOT . DS . 'librerias' . DS . strtolower($className) . '.class.php');
-	}else if(file_exists(ROOT . DS . 'app' . DS . 'controladores' . DS . cargarControlador($className) . '.php')) {
-		require_once(ROOT . DS . 'app' . DS . 'controladores' . DS . cargarControlador($className) . '.php');
-	}else if(file_exists(ROOT . DS . 'app' . DS . 'modelos' . DS . cargarModelo($className) . '.php')) {
-		require_once(ROOT . DS . 'app' . DS . 'modelos' . DS . cargarModelo($className) . '.php');
-	}else{
-		/* Error Generation Code Here */
-	}
+    
+    if($className == "xajax"){
+        require_once(ROOT . DS . 'librerias' . DS . 'xajax' . DS . 'xajax_core' . DS . 'xajax.inc.php');
+    }
+
+    if(file_exists(ROOT . DS . 'librerias' . DS . strtolower($className) . '.class.php')) {
+        require_once(ROOT . DS . 'librerias' . DS . strtolower($className) . '.class.php');
+    }else if(file_exists(ROOT . DS . 'app' . DS . 'controladores' . DS . cargarControlador($className) . '.php')) {
+        require_once(ROOT . DS . 'app' . DS . 'controladores' . DS . cargarControlador($className) . '.php');
+    }else if(file_exists(ROOT . DS . 'app' . DS . 'modelos' . DS . cargarModelo($className) . '.php')) {
+        require_once(ROOT . DS . 'app' . DS . 'modelos' . DS . cargarModelo($className) . '.php');
+    }else{
+            /* Error Generation Code Here */
+    }
 
 }
 
 function cargarControlador($className){
-	$className = str_replace("Controller","_controller",$className);
-	return strtolower($className);
+    $className = str_replace("Controller","_controller",$className);
+    return strtolower($className);
 }
 
 function cargarModelo($className){
-	$className = $className."_model";
-	return strtolower($className);
+    $className = $className."_model";
+    return strtolower($className);
 }
 
 $cache = new Cache();
@@ -142,6 +152,3 @@ setReporting();
 removeMagicQuotes();
 unregisterGlobals();
 despachar();
-
-
-?>

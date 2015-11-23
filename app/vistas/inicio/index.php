@@ -55,32 +55,40 @@
 </nav>
     
     <div class="jumbotron ">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <h1>Listo y Funcionando</h1>
+        <p class="lead">Al ver este mensaje significa que está instalado y funcionando, recuerda ir a la carpeta <code>config</code>, para establecer los parametros necesarios como el PATH y base de datos.</p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
     </div>
 
     <div class="row marketing">
         <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+            <h4>Simple, fácil y sencillo</h4>
+            <p>Aunque es un framework simple, se trata de tener la libertad de manipular y crear a tu propio criterio.
+            La idea es facilitar y automatizar procesos, contando con la compatibilidad necesaria para antiguos proyectos
+            y servidores, implementación rápida con solo copiar y pegar, sin tantos requerimientos, ya incluye los
+            archivos .htaccess para las url.</p>
+            
+            <h4>MVC</h4>
+            <p>Un estilo mvc muy propio y definido para llevar una misma convención.</p>
 
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            <h4>Routing</h4>
+            <p>Ligera manipulacion de las URL. Aunque no es necesario establecer, puedes manipular las rutas a través de 
+                patrones con expresiones regulares.</p>
         </div>
 
         <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+            <h4>Mysql</h4>
+            <p>Construido para trabajar sobre Mysql, hablamos desde páginas web simples a cualquier otro sistema 
+                basado en web. Se planea incluir mucho más a futuro.</p>
 
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+            <h4>Xajax</h4>
+            <p>Se incluye esta librería por las ventajas que provee, completamente implementada como columna 
+                vertebral de este proyecto y la mayoría de los componentes incluidos ya la utilizan.</p>
 
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            <h4>Boostrap, Jquery</h4>
+            <p>Lo más importante para nuestras capa front end, Bootstrap + Glyphicons + FontAwesome para todos 
+                los componentes listos para utilizar, incluye un tema modificado y se puede cambiar. 
+                Jquery como base para mayor dinamismo, plugins, validaciones.</p>
         </div>
     </div>
     

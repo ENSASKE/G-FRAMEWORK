@@ -20,7 +20,7 @@ class Template {
 	
     function render($sinHeader = 0) {
 
-        $html = new HTML;
+        $html = new HTML();
         extract($this->variables);
 
         if ($sinHeader == 0) {
