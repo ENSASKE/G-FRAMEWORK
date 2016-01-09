@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1">
 
@@ -10,12 +11,16 @@
         $html->includeCss('bootstrap.min');
         $html->includeCss('bootstrap.min.lumen');
         $html->includeCss('bootstrap-theme.min');
-        $html->includeCss('font-awesome');
+        $html->includeCss('font-awesome');        
+        $html->includeCss('fileinput');
         $html->includeCss('general');
 
         $html->includeJs('jquery-2.1.4.min');
+        $html->includeJs('fileinput');
+        $html->includeJs('fileinput_locale_es');
+        $html->includeJs('canvas-to-blob.min');
         $html->includeJs('bootstrap.min');
-        $html->includeJs('general');
+        $html->includeJs('general');        
 
         if(isset($xajax)){
             $xajax->printJavascript(BASE_PATH . '/public/js/');

@@ -92,7 +92,12 @@
         </div>
     </div>
     
-    <form>
+
+    
+    
+<div class="col-lg-6">
+    
+    <form enctype="multipart/form-data" onsubmit="return false;">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -102,9 +107,9 @@
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
+<!--    <label for="exampleInputFile">File input</label>-->
+    <input type="file" id="exampleInputFile" name="example[]" multiple=true />
+<!--    <p class="help-block">Example block-level help text here.</p>-->
   </div>
   <div class="checkbox">
     <label>
@@ -114,7 +119,47 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
     
+</div>   
     
+<div class="col-lg-6">
+    
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+    
+    <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+</form>
+    
+</div>
+        
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
@@ -141,3 +186,22 @@
 
 </div> <!-- /container -->
 
+<script>
+    
+$(document).ready(function() {
+
+    $("#exampleInputFile").fileinput({ 
+        language:'es',
+        //maxImageWidth: 200,
+        //maxImageHeight: 200,
+        //allowedFileTypes: ["image", "video"]        
+        //allowedFileExtensions: ["txt", "md", "ini", "text","jpg", "gif", "png"],
+       // allowedFileTypes: ["image"],
+        //overwriteInitial: false,
+        maxFileCount: 2,
+        autoReplace: false,
+        //maxFileSize: 100,//en KB
+        
+    });
+});    
+</script>

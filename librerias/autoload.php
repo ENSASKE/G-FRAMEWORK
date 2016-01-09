@@ -105,9 +105,15 @@ function despachar() {
 	if ((int)class_exists($controllerName) && (int)method_exists($controllerName, $action)) {
 		$dispatch = new $controllerName($controller,$action);
 		
-		call_user_func_array(array($dispatch,"beforeAction"),$queryString);
-		call_user_func_array(array($dispatch,$action),$queryString);
-		call_user_func_array(array($dispatch,"afterAction"),$queryString);
+                if(method_exists($dispatch, 'beforeAction')){
+                    call_user_func_array(array($dispatch,'beforeAction'),$queryString);
+                }
+                if(method_exists($dispatch, $action)){
+                    call_user_func_array(array($dispatch,$action),$queryString);
+                }
+                if(method_exists($dispatch, 'afterAction')){
+                    call_user_func_array(array($dispatch,'afterAction'),$queryString);
+                }
 	} else {
 		$controllerName = ucfirst($default['controller']).'Controller';
 		$dispatch = new $controllerName($default['controller'],$default['action'], true);

@@ -18,12 +18,12 @@ class baseController {
         $this->sinHeader = 0;
         $this->render = 1;
         if(!$sinModelo){
-                $this->$model = new $model();	
+            $this->$model = new $model();	
         }
 
         $this->_template = new Template($controller,$action);
 
-        $this->_iniciarXajax();    
+        $this->_iniciarXajax();
     }
 
     function set($name,$value) {
@@ -33,7 +33,7 @@ class baseController {
     private function _iniciarXajax(){
         //INICIALIZACION XAJAX
         $this->xajax = new xajax();
-        $this->objResponse = new xajaxResponse();        
+        $this->objResponse = new xajaxResponse();
         
         //$this->xajax->register(XAJAX_CALLABLE_OBJECT, $this);//todos los metodos        
         $metodosObjeto = get_class_methods($this);
